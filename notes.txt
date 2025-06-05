@@ -1,1 +1,2 @@
 demostarlitsteel
+chmod +X post-recive
