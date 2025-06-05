@@ -1,2 +1,16 @@
 demostarlitsteel
 chmod +X post-recive
+
+
+
+#!/bin/sh
+
+$WORK_TREE="/home/demostarlitsteel/ssbsui.git"
+$GIT_DIR="/home/demostarlitsteel/public_html"
+
+if [ ! -d "$WORK_TREE" ]; then
+  mkdir -p "$WORK_TREE"
+  chown git:git "$WORK_TREE"
+fi
+
+GIT_WORK_TREE="$WORK_TREE" GIT_DIR="$GIT_DIR" git checkout -f master
