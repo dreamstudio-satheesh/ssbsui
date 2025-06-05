@@ -20,5 +20,4 @@ do
         echo "Deployment of '$TARGET_BRANCH' to $DEPLOY_PATH completed."
     fi
 done
-
 exit 0
