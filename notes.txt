@@ -2,7 +2,6 @@ demostarlitsteel
 chmod +X post-recive
 
 
-
 #!/bin/sh
 
 GIT_REPO_PATH="/home/demostarlitsteel/ssbsui.git"
@@ -10,7 +9,7 @@ DEPLOY_PATH="/home/demostarlitsteel/public_html"
 TARGET_BRANCH="master"
 
 if [ ! -d "$DEPLOY_PATH" ]; then
- mkdir -p "$DEPLOY_PATH"
+    mkdir -p "$DEPLOY_PATH"
 fi
 
 while read oldrev newrev refname
