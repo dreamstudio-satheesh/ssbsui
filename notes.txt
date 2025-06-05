@@ -5,12 +5,21 @@ chmod +X post-recive
 
 #!/bin/sh
 
-$WORK_TREE="/home/demostarlitsteel/ssbsui.git"
-$GIT_DIR="/home/demostarlitsteel/public_html"
+GIT_REPO_PATH="/home/demostarlitsteel/ssbsui.git"
+DEPLOY_PATH="/home/demostarlitsteel/public_html"
+TARGET_BRANCH="master"
 
-if [ ! -d "$WORK_TREE" ]; then
-  mkdir -p "$WORK_TREE"
-  chown git:git "$WORK_TREE"
+if [ ! -d "$DEPLOY_PATH" ]; then
+ mkdir -p "$DEPLOY_PATH"
 fi
 
-GIT_WORK_TREE="$WORK_TREE" GIT_DIR="$GIT_DIR" git checkout -f master
+while read oldrev newrev refname
+do
+    if [ "$refname" = "refs/heads/$TARGET_BRANCH" ]; then
+        echo "Push to '$TARGET_BRANCH' branch detected. Deploying to $DEPLOY_PATH..."
+        GIT_WORK_TREE="$DEPLOY_PATH" GIT_DIR="$GIT_REPO_PATH" git checkout -f "$TARGET_BRANCH"
+        echo "Deployment of '$TARGET_BRANCH' to $DEPLOY_PATH completed."
+    fi
+done
+
+exit 0
