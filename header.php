@@ -160,14 +160,14 @@ $services = $categoryGroups['service'] ?? [];
 									<?php foreach ($services as $svc): ?>
 										<li>
 											<a href="services.php?id=<?= $svc['id'] ?>">
-												<?= htmlspecialchars($svc['title'], ENT_QUOTES) ?>
+												<?= htmlspecialchars($svc['name'], ENT_QUOTES) ?>
 											</a>
 										</li>
 									<?php endforeach; ?>
 								</ul>
 							</li>
-							<li ><a href="projects.php">Projects</a>
-								
+							<li><a href="projects.php">Projects</a>
+
 							</li>
 							<li><a href="products.php">Our Products</a>
 
