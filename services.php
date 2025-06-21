@@ -10,7 +10,6 @@ $serviceResp = fetchDataFromApi('api/services');
 $services = $serviceResp['services'] ?? [];
 
 
-
 // Create category slug map for filtering/classes
 $categoryMap = [];
 foreach ($serviceCategories as $cat) {
@@ -137,10 +136,10 @@ $serviceIcons = [
 
 						
 						<!-- Service Block Three -->
-						<!-- <div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+						<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 								<div class="image">
-									<a href="services-post.php?id=<?= $id ?>"><img src="<?= $rawPath ?>" alt="<?= $title ?>" /></a>
+									<a href="services-post.php?id=<?= $id ?>"><img src="https://admin.starlitsteel.com/storage/<?= $rawPath ?>" alt="<?= $title ?>" /></a>
 								</div>
 								<div class="lower-content">
 									<div class="content">
@@ -149,7 +148,7 @@ $serviceIcons = [
 									</div>
 								</div>
 							</div>
-						</div> -->
+						</div>
 					<?php endforeach; ?>
 				</div>
 
