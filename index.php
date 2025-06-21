@@ -306,109 +306,21 @@ if (!empty($sliderResponse['sliders']) && is_array($sliderResponse['sliders'])) 
 						<div class="p-tab" id="p-tab-2">
 							<div class="project-carousel owl-theme owl-carousel">
 
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
+								<?php foreach ($sliders as $slider): ?>
+									<div class="gallery-block">
+										<div class="inner-box">
+											<div class="image">
+												<a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>">
+													<img src="<?= getFullImageUrl($slider['image_path']) ?>" alt="<?= htmlspecialchars($slider['title']) ?>" />
+												</a>
+												<div class="overlay-box">
+													<h5><a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>"><?= htmlspecialchars($slider['title']) ?></a></h5>
+													<div class="location"><?= htmlspecialchars($slider['subtitle']) ?></div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach; ?>
 
 							</div>
 						</div>
@@ -417,220 +329,21 @@ if (!empty($sliderResponse['sliders']) && is_array($sliderResponse['sliders'])) 
 						<div class="p-tab" id="p-tab-3">
 							<div class="project-carousel owl-theme owl-carousel">
 
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
+								<?php foreach ($sliders as $slider): ?>
+									<div class="gallery-block">
+										<div class="inner-box">
+											<div class="image">
+												<a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>">
+													<img src="<?= getFullImageUrl($slider['image_path']) ?>" alt="<?= htmlspecialchars($slider['title']) ?>" />
+												</a>
+												<div class="overlay-box">
+													<h5><a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>"><?= htmlspecialchars($slider['title']) ?></a></h5>
+													<div class="location"><?= htmlspecialchars($slider['subtitle']) ?></div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<!-- Portfolio Tab -->
-						<div class="p-tab" id="p-tab-4">
-							<div class="project-carousel owl-theme owl-carousel">
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach; ?>
 
 							</div>
 						</div>
@@ -639,109 +352,21 @@ if (!empty($sliderResponse['sliders']) && is_array($sliderResponse['sliders'])) 
 						<div class="p-tab" id="p-tab-5">
 							<div class="project-carousel owl-theme owl-carousel">
 
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
+								<?php foreach ($sliders as $slider): ?>
+									<div class="gallery-block">
+										<div class="inner-box">
+											<div class="image">
+												<a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>">
+													<img src="<?= getFullImageUrl($slider['image_path']) ?>" alt="<?= htmlspecialchars($slider['title']) ?>" />
+												</a>
+												<div class="overlay-box">
+													<h5><a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>"><?= htmlspecialchars($slider['title']) ?></a></h5>
+													<div class="location"><?= htmlspecialchars($slider['subtitle']) ?></div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<?php endforeach; ?>
 
 							</div>
 						</div>
@@ -750,108 +375,23 @@ if (!empty($sliderResponse['sliders']) && is_array($sliderResponse['sliders'])) 
 						<div class="p-tab" id="p-tab-6">
 							<div class="project-carousel owl-theme owl-carousel">
 								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
+								<?php foreach ($sliders as $slider): ?>
+									<div class="gallery-block">
+										<div class="inner-box">
+											<div class="image">
+												<a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>">
+													<img src="<?= getFullImageUrl($slider['image_path']) ?>" alt="<?= htmlspecialchars($slider['title']) ?>" />
+												</a>
+												<div class="overlay-box">
+													<h5><a href="<?= htmlspecialchars($slider['link'] ?? '#') ?>"><?= htmlspecialchars($slider['title']) ?></a></h5>
+													<div class="location"><?= htmlspecialchars($slider['subtitle']) ?></div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								<?php endforeach; ?>
 
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Best Office Design</a></h5>
-												<div class="location">Tirupur </div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Construction Building</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Pink Office Decoration</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Gallery Block -->
-								<div class="gallery-block">
-									<div class="inner-box">
-										<div class="image">
-											<a href="#"><img src="assets/images/gallery/1.jpg" alt="" /></a>
-											<div class="overlay-box">
-												<h5><a href="#">Mirlando Construction</a></h5>
-												<div class="location">Tirupur</div>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 
