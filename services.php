@@ -130,7 +130,7 @@ $serviceIcons = [
 						foreach ($service['photos'] as $key => $value) {
 							# code...
 						}
-						$rawPath = $service['photos'][0]['path'] ?? '';
+						$rawPath = $service['photos'][0]['path'] ?? $key ?? 'assets/images/no-image.png';
 						$cleanPath = trim($rawPath);
 						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
 						$id = $service['id'];
