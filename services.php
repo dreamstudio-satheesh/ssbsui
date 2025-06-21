@@ -11,7 +11,7 @@ $services = $serviceResp['services'] ?? [];
 
 foreach ($services as &$service) {
 	// Ensure 'photos' is set and not empty
-echo	$service['photos'] = $service['photos'] ?? '';
+echo	$service['photos'] = $service['photos'] [0]?? '';
 	// Clean up the path
 	$service['photos'] = trim($service['photos']);
 }	
