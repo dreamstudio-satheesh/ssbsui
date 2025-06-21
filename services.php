@@ -103,7 +103,13 @@ $serviceIcons = [
 						<?php
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
-						$image = getFullImageUrl($service['photos'][0] ?? '');
+						$image = '';
+						if (!empty($service['photos']) && is_array($service['photos'])) {
+							$image = getFullImageUrl($service['photos'][0]);
+						} else {
+							$image = getFullImageUrl('');
+						}
+
 						$id = $service['id'];
 						?>
 						<!-- Service Block Three -->
