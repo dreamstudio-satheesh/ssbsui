@@ -3,10 +3,20 @@ require_once 'api_helper.php';
 
 $productsEndpointPath = "api/products";
 $apiResponse = fetchDataFromApi($productsEndpointPath);
+$categoryResponse = fetchDataFromApi("api/categories");
 
 $products = [];
+$categories = [];
 $pageTitle = "Our Products";
 $errorMessage = null;
+
+if (isset($categoryResponse['categories'])) {
+	foreach ($categoryResponse['categories'] as $cat) {
+		if ($cat['type'] === 'product') {
+			$categories[$cat['id']] = $cat['name'];
+		}
+	}
+}
 
 if ($apiResponse === null) {
 	$errorMessage = "There was an issue fetching the products data. Please try again later.";
@@ -20,10 +30,9 @@ if ($apiResponse === null) {
 
 function slugify($text)
 {
-	return strtolower(preg_replace('/[^a-z0-9]+/', '-', trim($text)));
+	return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $text)));
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -99,7 +108,8 @@ function slugify($text)
 		</section>
 		<!-- End Page Title -->
 
-		<!-- Projects Section Two -->
+
+
 		<!-- Products Section -->
 		<section class="projects-section-two">
 			<div class="auto-container">
@@ -114,27 +124,37 @@ function slugify($text)
 						<ul class="filter-tabs filter-btns text-center clearfix">
 							<li class="filter active" data-role="button" data-filter="all">All</li>
 							<?php
-							$uniqueCategories = [];
-							foreach ($products as $product) {
-								$cat = slugify($product['category'] ?? 'general');
-								$uniqueCategories[$cat] = $product['category'] ?? 'General';
-							}
-							foreach ($uniqueCategories as $slug => $label): ?>
-								<li class="filter" data-role="button" data-filter=".<?= $slug ?>">
-									<?= htmlspecialchars($label, ENT_QUOTES) ?>
-								</li>
-							<?php endforeach; ?>
+							$used = [];
+							foreach ($products as $product):
+								$catName = $categories[$product['category_id']] ?? null;
+								if ($catName):
+									$slug = slugify($catName);
+									if (!in_array($slug, $used)):
+										$used[] = $slug;
+							?>
+										<li class="filter" data-role="button" data-filter=".<?= $slug ?>">
+											<?= htmlspecialchars($catName, ENT_QUOTES) ?>
+										</li>
+							<?php
+									endif;
+								endif;
+							endforeach;
+							?>
 						</ul>
 					</div>
 
 					<div class="filter-list row clearfix">
 						<?php foreach ($products as $product): ?>
-							<?php $catClass = slugify($product['category'] ?? 'general'); ?>
+							<?php
+							$catName = $categories[$product['category_id']] ?? 'general';
+							$catClass = slugify($catName);
+							$image = $product['photos'][0] ?? '';
+							?>
 							<div class="gallery-block-two mix all <?= $catClass ?> col-lg-4 col-md-6 col-sm-12">
 								<div class="inner-box">
 									<div class="image">
 										<a href="products-detail.php?id=<?= $product['id'] ?>">
-											<img src="<?= getFullImageUrl($product['image_path'] ?? '') ?>" alt="<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>" />
+											<img src="<?= getFullImageUrl($image) ?>" alt="<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>" />
 										</a>
 									</div>
 									<div class="lower-content">
@@ -155,7 +175,8 @@ function slugify($text)
 				</div>
 			</div>
 		</section>
-		<!-- End Projects Section Two -->
+
+		<!-- End Projects Section  -->
 
 
 
