@@ -101,6 +101,9 @@ $serviceIcons = [
 				<div class="row clearfix" style="min-height: 726;">
 					<?php foreach ($services as $i => $service): ?>
 						<?php
+
+						print_r($service);
+						exit();
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
 						$image = '';
