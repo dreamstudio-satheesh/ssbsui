@@ -158,7 +158,7 @@ $services = $resp['services'] ?? [];
 								<ul>
 									<?php foreach ($services as $svc): ?>
 										<li>
-											<a href="service.php?id=<?= $svc['id'] ?>">
+											<a href="services.php?id=<?= $svc['id'] ?>">
 												<?= htmlspecialchars($svc['title'], ENT_QUOTES) ?>
 											</a>
 										</li>
