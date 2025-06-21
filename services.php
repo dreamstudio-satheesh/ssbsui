@@ -17,10 +17,10 @@ foreach ($serviceCategories as $cat) {
 
 // print as json $services 
 
-header('Content-type: application/json');
-echo json_encode( $services, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+// header('Content-type: application/json');
+// echo json_encode( $services, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-exit();
+// exit();
 
 
 
@@ -126,7 +126,7 @@ $serviceIcons = [
 						<?php
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
-						$image = getFullImageUrl($service['photos'][0] ?? '');
+						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
 						$id = $service['id'];
 						?>
 						<!-- Service Block Three -->
