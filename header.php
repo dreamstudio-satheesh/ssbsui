@@ -1,6 +1,9 @@
+<!-- header.php -->
 <?php
 require_once __DIR__ . '/api_helper.php';
-$services = getServices();
+
+$resp = fetchDataFromApi('api/services');
+$services = $resp['services'] ?? [];
 ?>
 
 <!-- Preloader -->
@@ -163,15 +166,7 @@ $services = getServices();
 								</ul>
 							</li>
 							<li class="dropdown"><a href="#">Projects</a>
-								<ul>
-									<li><a href="projects.php">Industrial</a></li>
-									<li><a href="projects.php">Construction </a></li>
-									<li><a href="projects.php">Residential </a></li>
-									<li><a href="projects.php">Institutional </a></li>
-									<li><a href="projects.php">Sports & Leisure </a></li>
-									<li><a href="projects.php">Commercial </a></li>
-
-								</ul>
+								
 							</li>
 							<li><a href="products.php">Our Products</a>
 
