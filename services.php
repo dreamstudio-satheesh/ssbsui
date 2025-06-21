@@ -20,7 +20,7 @@ foreach ($serviceCategories as $cat) {
 header('Content-type: application/json');
 echo json_encode( $services, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-
+exit();
 
 
 
