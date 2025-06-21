@@ -101,11 +101,12 @@ $serviceIcons = [
 				<div class="row clearfix">
 					<?php foreach ($services as $i => $service): ?>
 						<?php
-						$icon = $serviceIcons[$i % count($serviceIcons)];
+						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
 						$image = getFullImageUrl($service['photos'][0] ?? '');
 						$id = $service['id'];
 						?>
+						<!-- Service Block Three -->
 						<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 								<div class="image">
@@ -113,7 +114,7 @@ $serviceIcons = [
 								</div>
 								<div class="lower-content">
 									<div class="content">
-										<span class="icon <?= $icon ?>"></span>
+										<span class="icon <?= $iconClass ?>"></span>
 										<h5><a href="services-post.php?id=<?= $id ?>"><?= $title ?></a></h5>
 									</div>
 								</div>
@@ -121,6 +122,7 @@ $serviceIcons = [
 						</div>
 					<?php endforeach; ?>
 				</div>
+
 
 				<!-- Lower Text -->
 				<div class="lower-text">
