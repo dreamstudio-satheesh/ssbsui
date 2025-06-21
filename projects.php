@@ -120,11 +120,14 @@ foreach ($projects as $cat) {
 						<ul class="filter-tabs filter-btns text-center clearfix">
 							<li class="active filter" data-role="button" data-filter="all">All</li>
 							<?php foreach ($projects as $cat): ?>
-								<li class="filter" data-role="button" data-filter=".<?= $cat['slug'] ?>">
-									<?= htmlspecialchars($cat['name'], ENT_QUOTES) ?>
-								</li>
+								<?php
+								$slug = isset($cat['slug']) ? htmlspecialchars($cat['slug'], ENT_QUOTES) : 'unknown';
+								$name = isset($cat['name']) ? htmlspecialchars($cat['name'], ENT_QUOTES) : 'Unnamed';
+								?>
+								<li class="filter" data-role="button" data-filter=".<?= $slug ?>"><?= $name ?></li>
 							<?php endforeach; ?>
 						</ul>
+
 
 
 					</div>
