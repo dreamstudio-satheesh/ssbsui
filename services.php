@@ -128,15 +128,12 @@ $serviceIcons = [
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
 						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
 						$id = $service['id'];
-
-						echo '<pre>';
-print_r($service['photos']);
-echo '</pre>';
+						
 						?>
 
 						
 						<!-- Service Block Three -->
-						<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+						<!-- <div class="service-block-three col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 								<div class="image">
 									<a href="services-post.php?id=<?= $id ?>"><img src="<?= $image ?>" alt="<?= $title ?>" /></a>
@@ -148,7 +145,7 @@ echo '</pre>';
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					<?php endforeach; ?>
 				</div>
 
