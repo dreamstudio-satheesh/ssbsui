@@ -1,10 +1,21 @@
 <?php
 require_once __DIR__ . '/api_helper.php';
-$resp = fetchDataFromApi('api/services');
-$services = $resp['services'] ?? [];
 
-print_r($services);
-exit();
+// Fetch categorized categories
+$categoryGroups = getCategoryGroups();
+$serviceCategories = $categoryGroups['service'] ?? [];
+
+// Fetch services list
+$serviceResp = fetchDataFromApi('api/services');
+$services = $serviceResp['services'] ?? [];
+
+// Create category slug map for filtering/classes
+$categoryMap = [];
+foreach ($serviceCategories as $cat) {
+    $categoryMap[$cat['id']] = $cat['slug'];
+}
+
+
 
 $serviceIcons = [
 	'flaticon-home-1',
@@ -104,17 +115,9 @@ $serviceIcons = [
 				<div class="row clearfix" style="min-height: 726;">
 					<?php foreach ($services as $i => $service): ?>
 						<?php
-
-						print_r($service);
-						exit();
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
-						$image = '';
-						if (!empty($service['photos']) && is_array($service['photos'])) {
-							$image = 'https://admin.starlitsteel.com/storage/' . ltrim($photos[0]);
-						} else {
-							$image = 'https://admin.starlitsteel.com/storage/'.$service['photos'][0];
-						}
+						$image = getFullImageUrl($service['photos'][0] ?? '');
 						$id = $service['id'];
 						?>
 						<!-- Service Block Three -->
