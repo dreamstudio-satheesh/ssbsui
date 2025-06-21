@@ -46,14 +46,13 @@ function fetchDataFromApi(string $endpointPath): ?array
 function getFullImageUrl(string $relativePath): string
 {
     if (empty($relativePath)) {
-        return ''; // or a fallback image
+        return 'https://admin.starlitsteel.com/assets/images/no-image.png'; // Fallback image
     }
 
-    // Already full URL? Return as is
     if (preg_match('~^https?://~i', $relativePath)) {
         return $relativePath;
     }
 
-    // Assume all are stored under /storage/
     return 'https://admin.starlitsteel.com/storage/' . ltrim($relativePath, '/');
 }
+
