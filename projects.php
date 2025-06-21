@@ -1,7 +1,18 @@
 <?php
 require_once __DIR__ . '/api_helper.php';
-$projectsResp = fetchDataFromApi('api/projects');
-$projects = $projectsResp['projects'] ?? [];
+
+$projectsResp   = fetchDataFromApi('api/projects');
+$projects       = $projectsResp['projects'] ?? [];
+
+$categoriesResp = fetchDataFromApi('api/project-categories');
+$categories     = $categoriesResp['categories'] ?? [];
+
+// Prepare map: category_id → slug (slug = lowercase, hyphenated class name)
+$categoryMap = [];
+foreach ($categories as $cat) {
+	$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
+	$categoryMap[$cat['id']] = $slug;
+}
 ?>
 
 
@@ -100,19 +111,21 @@ $projects = $projectsResp['projects'] ?? [];
 
 						<ul class="filter-tabs filter-btns text-center clearfix">
 							<li class="active filter" data-role="button" data-filter="all">All</li>
-							<li class="filter" data-role="button" data-filter=".industrial">Industrial</a></li>
-							<li class="filter" data-role="button" data-filter=".construction">Construction </a></li>
-							<li class="filter" data-role="button" data-filter=".residential">Residential </a></li>
-							<li class="filter" data-role="button" data-filter=".institutional">Institutional </a></li>
-							<li class="filter" data-role="button" data-filter=".sports">Sports & Leisure </a></li>
-							<li class="filter" data-role="button" data-filter=".commercial">Commercial </a></li>
+							<?php foreach ($categories as $cat): ?>
+								<?php $slug = strtolower(preg_replace('/\s+/', '-', $cat['name'])); ?>
+								<li class="filter" data-role="button" data-filter=".<?= $slug ?>">
+									<?= htmlspecialchars($cat['name'], ENT_QUOTES) ?>
+								</li>
+							<?php endforeach; ?>
 						</ul>
+
 
 					</div>
 
 					<div class="filter-list row clearfix">
 						<?php foreach ($projects as $project): ?>
-							<div class="gallery-block-two mix all industrial col-lg-4 col-md-6 col-sm-12">
+							<?php $catClass = $categoryMap[$project['category_id']] ?? 'uncategorized'; ?>
+							<div class="gallery-block-two mix all <?= $catClass ?> col-lg-4 col-md-6 col-sm-12">
 								<div class="inner-box">
 									<div class="image">
 										<a href="projects-detail.php?id=<?= $project['id'] ?>">
@@ -125,12 +138,13 @@ $projects = $projectsResp['projects'] ?? [];
 												<?= htmlspecialchars($project['title'], ENT_QUOTES) ?>
 											</a>
 										</h5>
-										<div class="designation">Place: <span><?= date('M d, Y', strtotime($project['created_at'])) ?></span></div>
+										<div class="designation">Date: <span><?= date('M d, Y', strtotime($project['created_at'])) ?></span></div>
 									</div>
 								</div>
 							</div>
 						<?php endforeach; ?>
 					</div>
+
 
 
 					<!-- Button Box -->
