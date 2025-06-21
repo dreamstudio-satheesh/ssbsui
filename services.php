@@ -130,9 +130,7 @@ $serviceIcons = [
 						foreach ($service['photos'] as $key => $value) {
 							# code...
 						}
-						$rawPath = $service['photos'][0]['path'] ?? $key ?? 'assets/images/no-image.png';
-						$cleanPath = trim($rawPath);
-						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
+						$image = getFullImageUrl($project['photos'][0] ?? '');
 						$id = $service['id'];
 						
 						?>
@@ -142,7 +140,7 @@ $serviceIcons = [
 						<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 								<div class="image">
-									<a href="services-post.php?id=<?= $id ?>"><img src="https://admin.starlitsteel.com/storage/<?php echo $rawPath ?>" alt="<?php echo $title ?>" /></a>
+									<a href="services-post.php?id=<?= $id ?>"><img src="https://admin.starlitsteel.com/storage/<?php echo $image ?>" alt="<?php echo $title ?>" /></a>
 								</div>
 								<div class="lower-content">
 									<div class="content">

@@ -73,9 +73,9 @@ function getFullImageUrl(string $relativePath): string
         return 'https://admin.starlitsteel.com/assets/images/no-image.png'; // Fallback image
     }
 
-    if (preg_match('~^https?://~i', $relativePath)) {
-        return $relativePath;
-    }
+    // if (preg_match('~^https?://~i', $relativePath)) {
+    //     return $relativePath;
+    // }
 
     return 'https://admin.starlitsteel.com/storage/' . ltrim($relativePath, '/');
 }
