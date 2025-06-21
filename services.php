@@ -13,10 +13,13 @@ if ($apiResponse === null) {
 } elseif (isset($apiResponse['services']) && is_array($apiResponse['services'])) {
     $services = $apiResponse['services'];
 } elseif (is_array($apiResponse) && !empty($apiResponse) && isset($apiResponse[0]['id']) && isset($apiResponse[0]['title'])) {
+    // If the API returns the array of services directly (less common if it's a named endpoint)
     $services = $apiResponse;
 } else {
     $errorMessage = "No services found or the data format from '" . htmlspecialchars($servicesEndpointPath) . "' is unexpected.";
+    
 }
+
 ?>
 
 <!DOCTYPE html>
