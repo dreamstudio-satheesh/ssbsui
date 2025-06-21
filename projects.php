@@ -3,27 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once __DIR__ . '/api_helper.php';
 
-function getCategoryGroups(): array
-{
-	$resp = fetchDataFromApi('api/categories');
-	$categories = $resp['categories'] ?? [];
-
-	$grouped = [
-		'project' => [],
-		'product' => [],
-		'service' => [],
-	];
-
-	foreach ($categories as $cat) {
-		$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
-		$cat['slug'] = $slug;
-		if (isset($grouped[$cat['type']])) {
-			$grouped[$cat['type']][] = $cat;
-		}
-	}
-
-	return $grouped;
-}
 
 // Fetch categorized categories
 $categoryGroups = getCategoryGroups();
