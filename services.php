@@ -103,8 +103,12 @@ $serviceIcons = [
 						<?php
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
-						$image = "https://admin.starlitsteel.com/storage/"($service['photos'][0] ?? '');
-						
+						$image = '';
+						if (!empty($service['photos']) && is_array($service['photos'])) {
+							$image = 'https://admin.starlitsteel.com/storage/' . ltrim($service['photos'][0], '/');
+						} else {
+							$image = 'https://admin.starlitsteel.com/assets/images/no-image.png';
+						}
 						$id = $service['id'];
 						?>
 						<!-- Service Block Three -->
