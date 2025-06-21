@@ -1,24 +1,43 @@
 <?php
 require_once __DIR__ . '/api_helper.php';
 
-// Get categories
-$categoryResp = fetchDataFromApi('api/categories');
-$categories = [];
-$categoryMap = [];
+function getCategoryGroups(): array
+{
+	$resp = fetchDataFromApi('api/categories');
+	$categories = $resp['categories'] ?? [];
 
-if (!empty($categoryResp['categories'])) {
-	foreach ($categoryResp['categories'] as $cat) {
-		if ($cat['type'] === 'project') {
-			$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
-			$categories[] = ['id' => $cat['id'], 'name' => $cat['name'], 'slug' => $slug];
-			$categoryMap[$cat['id']] = $slug;
+	$grouped = [
+		'project' => [],
+		'product' => [],
+		'service' => [],
+	];
+
+	foreach ($categories as $cat) {
+		$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
+		$cat['slug'] = $slug;
+		if (isset($grouped[$cat['type']])) {
+			$grouped[$cat['type']][] = $cat;
 		}
 	}
+
+	return $grouped;
 }
 
-// Get projects
+// Fetch categorized categories
+$categoryGroups = getCategoryGroups();
+$services = $categoryGroups['service'];
+$projects = $categoryGroups['project'];
+$products = $categoryGroups['product'];
+
+// Fetch project list
 $projectResp = fetchDataFromApi('api/projects');
-$projects = $projectResp['projects'] ?? [];
+$projectsList = $projectResp['projects'] ?? [];
+
+// Prepare category map for filtering in HTML classes
+$categoryMap = [];
+foreach ($projects as $cat) {
+	$categoryMap[$cat['id']] = $cat['slug'];
+}
 ?>
 
 
@@ -116,11 +135,11 @@ $projects = $projectResp['projects'] ?? [];
 
 
 
+						<!-- Project Category Filters -->
 						<ul class="filter-tabs filter-btns text-center clearfix">
 							<li class="active filter" data-role="button" data-filter="all">All</li>
-							<?php foreach ($categories as $cat): ?>
-								<?php $slug = strtolower(preg_replace('/\s+/', '-', $cat['name'])); ?>
-								<li class="filter" data-role="button" data-filter=".<?= $slug ?>">
+							<?php foreach ($projects as $cat): ?>
+								<li class="filter" data-role="button" data-filter=".<?= $cat['slug'] ?>">
 									<?= htmlspecialchars($cat['name'], ENT_QUOTES) ?>
 								</li>
 							<?php endforeach; ?>
@@ -129,8 +148,9 @@ $projects = $projectResp['projects'] ?? [];
 
 					</div>
 
+					<!-- Project List -->
 					<div class="filter-list row clearfix">
-						<?php foreach ($projects as $project): ?>
+						<?php foreach ($projectsList as $project): ?>
 							<?php $catClass = $categoryMap[$project['category_id']] ?? 'uncategorized'; ?>
 							<div class="gallery-block-two mix all <?= $catClass ?> col-lg-4 col-md-6 col-sm-12">
 								<div class="inner-box">

@@ -36,6 +36,30 @@ function fetchDataFromApi(string $endpointPath): ?array
     return $data;
 }
 
+
+function getCategoryGroups(): array
+{
+    $resp = fetchDataFromApi('api/categories');
+    $categories = $resp['categories'] ?? [];
+
+    $grouped = [
+        'project' => [],
+        'product' => [],
+        'service' => [],
+    ];
+
+    foreach ($categories as $cat) {
+        $slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
+        $cat['slug'] = $slug;
+        if (isset($grouped[$cat['type']])) {
+            $grouped[$cat['type']][] = $cat;
+        }
+    }
+
+    return $grouped;
+}
+
+
 /**
  * Constructs the full URL for an image.
  * Assumes relative paths are relative to the API_BASE_URL.
