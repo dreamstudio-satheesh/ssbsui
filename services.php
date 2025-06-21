@@ -9,14 +9,7 @@ $serviceCategories = $categoryGroups['service'] ?? [];
 $serviceResp = fetchDataFromApi('api/services');
 $services = $serviceResp['services'] ?? [];
 
-foreach ($services as &$service) {
-	// Ensure 'photos' is set and not empty
-echo	$service['photos'] = $service['photos'] [0]?? '';
-	// Clean up the path
-	$service['photos'] = trim($service['photos']);
-}	
 
-exit();
 
 // Create category slug map for filtering/classes
 $categoryMap = [];
@@ -135,7 +128,7 @@ $serviceIcons = [
 						<?php
 						$iconClass = $serviceIcons[$i % count($serviceIcons)];
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
-						$rawPath = $service['photos'] ?? '';
+						$rawPath = $service['photos'][0] ?? '';
 						$cleanPath = trim($rawPath);
 						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
 						$id = $service['id'];
