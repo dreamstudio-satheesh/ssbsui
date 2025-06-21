@@ -15,6 +15,15 @@ foreach ($serviceCategories as $cat) {
     $categoryMap[$cat['id']] = $cat['slug'];
 }
 
+// print as json $services 
+
+header('Content-type: application/json');
+echo json_encode( $services, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+
+
+
+
+
 
 
 $serviceIcons = [
