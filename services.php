@@ -129,9 +129,8 @@ $serviceIcons = [
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
 						foreach ($service['photos'] as $key => $value) {
 							# code...
-						echo	$rawPath = $value;
 						}
-						exit();
+						$rawPath = $service['photos'][0]['path'] ?? '';
 						$cleanPath = trim($rawPath);
 						$image = 'https://admin.starlitsteel.com/storage/' . ltrim($cleanPath, '/');
 						$id = $service['id'];
