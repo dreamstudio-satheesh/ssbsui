@@ -165,7 +165,7 @@ $services = $resp['services'] ?? [];
 									<?php endforeach; ?>
 								</ul>
 							</li>
-							<li class="dropdown"><a href="projects.php">Projects</a>
+							<li><a href="projects.php">Projects</a>
 								
 							</li>
 							<li><a href="products.php">Our Products</a>
