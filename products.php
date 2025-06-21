@@ -32,6 +32,8 @@ function slugify($text)
 {
 	return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $text)));
 }
+
+return $products;
 ?>
 
 <!DOCTYPE html>
