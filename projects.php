@@ -1,19 +1,18 @@
 <?php
 require_once __DIR__ . '/api_helper.php';
 
-$projectsResp   = fetchDataFromApi('api/projects');
-$projects       = $projectsResp['projects'] ?? [];
+$categoryResp = fetchDataFromApi('api/categories');
+$projectCategories = [];
 
-$categoriesResp = fetchDataFromApi('api/project-categories');
-$categories     = $categoriesResp['categories'] ?? [];
-
-// Prepare map: category_id → slug (slug = lowercase, hyphenated class name)
-$categoryMap = [];
-foreach ($categories as $cat) {
-	$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
-	$categoryMap[$cat['id']] = $slug;
+if (isset($categoryResp['categories'])) {
+    foreach ($categoryResp['categories'] as $cat) {
+        if ($cat['type'] === 'project') {
+            $projectCategories[] = $cat;
+        }
+    }
 }
 ?>
+
 
 
 
