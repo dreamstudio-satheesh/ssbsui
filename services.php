@@ -3,6 +3,9 @@ require_once __DIR__ . '/api_helper.php';
 $resp = fetchDataFromApi('api/services');
 $services = $resp['services'] ?? [];
 
+print_r($services);
+exit();
+
 $serviceIcons = [
 	'flaticon-home-1',
 	'flaticon-under-construction',
