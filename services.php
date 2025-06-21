@@ -105,7 +105,7 @@ $serviceIcons = [
 						$title = htmlspecialchars($service['title'], ENT_QUOTES);
 						$image = '';
 						if (!empty($service['photos']) && is_array($service['photos'])) {
-							$image = 'https://admin.starlitsteel.com/storage/' . ltrim($service['photos'][0]);
+							$image = 'https://admin.starlitsteel.com/storage/' . ltrim($photos[0]);
 						} else {
 							$image = 'https://admin.starlitsteel.com/storage/'.$service['photos'][0];
 						}
