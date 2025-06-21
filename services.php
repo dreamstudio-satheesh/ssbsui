@@ -1,26 +1,4 @@
-<?php
-require_once 'api_helper.php'; 
 
-$servicesEndpointPath = "api/services"; 
-$apiResponse = fetchDataFromApi($servicesEndpointPath);
-
-$services = [];
-$pageTitle = "Our Services";
-$errorMessage = null;
-
-if ($apiResponse === null) {
-    $errorMessage = "There was an issue fetching the services data. Please try again later.";
-} elseif (isset($apiResponse['services']) && is_array($apiResponse['services'])) {
-    $services = $apiResponse['services'];
-} elseif (is_array($apiResponse) && !empty($apiResponse) && isset($apiResponse[0]['id']) && isset($apiResponse[0]['title'])) {
-    // If the API returns the array of services directly (less common if it's a named endpoint)
-    $services = $apiResponse;
-} else {
-    $errorMessage = "No services found or the data format from '" . htmlspecialchars($servicesEndpointPath) . "' is unexpected.";
-    
-}
-
-?>
 
 <!DOCTYPE html>
 <html>
