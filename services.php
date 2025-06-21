@@ -114,6 +114,83 @@ $serviceIcons = [
 						</div>
 					</div>
 				</div>
+				
+				<!-- Service Block Three -->
+				<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="services-post.php"><img src="assets/images/resource/service-2.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="content">
+								<span class="icon flaticon-under-construction"></span>
+								<h5><a href="services-post.php">Standing Seam <br> Metal</a></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Service Block Three -->
+				<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="services-post.php"><img src="assets/images/resource/service-3.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="content">
+								<span class="icon flaticon-blueprint"></span>
+								<h5><a href="services-post.php">Built-up & <br> Modified Bitumen</a></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Service Block Three -->
+				<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="services-post.php"><img src="assets/images/resource/service-4.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="content">
+								<span class="icon flaticon-building"></span>
+								<h5><a href="services-post.php">Building <br> Information</a></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Service Block Three -->
+				<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="services-post.php"><img src="assets/images/resource/service-5.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="content">
+								<span class="icon flaticon-helmet"></span>
+								<h5><a href="services-post.php">Innovative <br> Engineering</a></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Service Block Three -->
+				<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="services-post.php"><img src="assets/images/resource/service-6.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="content">
+								<span class="icon flaticon-helmet"></span>
+								<h5><a href="services-post.php">Architectural <br> Composite Metal</a></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
 			
 			<!-- Lower Text -->
 			<div class="lower-text">
