@@ -1,16 +1,24 @@
 <?php
 require_once __DIR__ . '/api_helper.php';
 
+// Get categories
 $categoryResp = fetchDataFromApi('api/categories');
-$projectCategories = [];
+$categories = [];
+$categoryMap = [];
 
-if (isset($categoryResp['categories'])) {
-    foreach ($categoryResp['categories'] as $cat) {
-        if ($cat['type'] === 'project') {
-            $projectCategories[] = $cat;
-        }
-    }
+if (!empty($categoryResp['categories'])) {
+	foreach ($categoryResp['categories'] as $cat) {
+		if ($cat['type'] === 'project') {
+			$slug = strtolower(preg_replace('/\s+/', '-', $cat['name']));
+			$categories[] = ['id' => $cat['id'], 'name' => $cat['name'], 'slug' => $slug];
+			$categoryMap[$cat['id']] = $slug;
+		}
+	}
 }
+
+// Get projects
+$projectResp = fetchDataFromApi('api/projects');
+$projects = $projectResp['projects'] ?? [];
 ?>
 
 
