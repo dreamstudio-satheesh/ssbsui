@@ -156,7 +156,7 @@ $projects = $projectResp['projects'] ?? [];
 
 					<!-- Button Box -->
 					<div class="button-box text-center">
-						<a class="btn-style-two theme-btn" href="projects.html"><span class="txt">View All Projects</span></a>
+						<a class="btn-style-two theme-btn" href="projects.php"><span class="txt">View All Projects</span></a>
 					</div>
 
 				</div>
