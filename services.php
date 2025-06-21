@@ -139,12 +139,12 @@ $serviceIcons = [
 						<div class="service-block-three col-lg-4 col-md-6 col-sm-12">
 							<div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 								<div class="image">
-									<a href="services-post.php?id=<?= $id ?>"><img src="https://admin.starlitsteel.com/storage/<?= $rawPath ?>" alt="<?= $title ?>" /></a>
+									<a href="services-post.php?id=<?= $id ?>"><img src="https://admin.starlitsteel.com/storage/<?php echo $rawPath ?>" alt="<?php echo $title ?>" /></a>
 								</div>
 								<div class="lower-content">
 									<div class="content">
-										<span class="icon <?= $iconClass ?>"></span>
-										<h5><a href="services-post.php?id=<?= $id ?>"><?= $title ?></a></h5>
+										<span class="icon <?php echo $iconClass ?>"></span>
+										<h5><a href="services-post.php?id=<?php echo $id ?>"><?php echo $title ?></a></h5>
 									</div>
 								</div>
 							</div>
